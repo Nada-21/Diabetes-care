@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title> Predict Diabetes </title>
+  <style>
+  body {
+    background-color:#f1f7fd;
+  }
+  div.grid {
+	width: 800px;
+	display: grid;
+	justify-content: center;
+	margin: 50px auto;
+}
+input{width:200px; height: 40px;margin-left:6%; margin-right:6%; margin-top: 10px;
+  margin-bottom: 10px;}
+
+  
+  </style>   
+  
+</head>
+
+<body style="width: 100%; height: 100%; ">
+  
+ <div class="grid" >
+
+  <div class="box">
+
+  <h1 style="color:rgb(14, 14, 58);text-align:center;">DIABETES-CARE</h1>
+  <p style="color:rgb(9, 9, 9);text-align:center;">Take a test to predict diabetes</p>
+  <div style="width: 1000px;  border: 15px;  padding: 15px;  margin: 20px;">
+    <form action="{{ url_for('predict')}}"method="post" style="width:100%; ">
+      <div>
+        <div>
+        <input type="text" name="cholesterol" placeholder="cholesterol" required="required"   />
+        <input type="text" name="glucose" placeholder="glucose" required="required"  />
+        <input type="text" name="hdl_chol" placeholder="hdl_chol" required="required"  />
+      </div>
+      <div>
+        <input type="text" name="chol_hdl_ratio" placeholder="chol_hdl_ratio" required="required"  />
+        <input type="text" name="age" placeholder="age" required="required" />
+        <input list="gender" name="gender" placeholder="gender"  >
+        <datalist id="gender">
+          <option value="1">
+            <p>Female</p>       
+          <option value="2">
+            <p>Male</p>
+          
+          </datalist>
+          
+       
+      </div>
+      
+      <div>
+        <input type="text" name="weight" placeholder="weight" required="required" />
+        <input type="text" name="height" placeholder="height" required="required" />
+        <input type="text" name="bmi" placeholder="bmi" required="required" />
+      </div>
+		  <div>
+        <input type="text" name="systolic_bp" placeholder="systolic_bp" required="required"  />
+        <input type="text" name="diastolic_bp" placeholder="diastolic_bp" required="required"  />
+        <input type="text" name="waist" placeholder="waist" required="required" />
+      </div>
+      <div>
+        <input type="text" name="hip" placeholder="hip" required="required"  />
+        <input type="text" name="waist_hip_ratio" placeholder="waist_hip_ratio" required="required"  />
+      </div>
+		  
+      <div>
+        <button type="submit" class="btn" style="background-color:#1977cc; border:0; padding:14px 70px; border-radius: 12px; color:#fff; transition:0.4s; margin-top: 10px;
+        margin-bottom: 10px; margin-left:40%; margin-right:40%;">ENTER</button>
+      </div>
+    </div>
+      
+    </form>
+  </div>
+  
+     
+   <div><h2 style="color:#2c4964; text-align:center;">{{ prediction_text }}</h2></div>
+   
+
+ </div>
+</div>
+
+</body>
+</html>
